@@ -30,11 +30,12 @@ class EnigmaEncrpt
     end
 
     def validate_file_exist
-      if check_file_exitence(ARGV)
-        check_file_exitence(ARGV)
-      else
-        validations_complete
-      end
+      # if check_file_exitence(ARGV)
+      #   check_file_exitence(ARGV)
+      # else
+      #   validations_complete
+      # end
+      return validations_complete unless check_file_exitence(ARGV)
     end
 
     def validations_complete
