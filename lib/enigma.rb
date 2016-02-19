@@ -11,14 +11,13 @@ class EnigmaEncrpt
   def initialize
     @messages = Messages.new()
     @read_write = Files.new()
-    @encrypt = Encryption.new(file_to_encrypt)
   end
 
     def validate_length
       if check_argument(ARGV)
         check_argument(ARGV)
       else
-          validate_file_type
+        validate_file_type
       end
     end
 
@@ -39,7 +38,7 @@ class EnigmaEncrpt
     end
 
     def validations_complete
-
+      @encrypt = Encryption.new(file_to_encrypt)
       start_encryption
     end
 
@@ -51,10 +50,8 @@ class EnigmaEncrpt
     @read_write.read_file(ARGV[0])
   end
 
-
-
   #end of class
 end
 
 test = EnigmaEncrpt.new
-p test.start_encryption
+p test.validate_length
