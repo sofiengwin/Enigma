@@ -1,19 +1,19 @@
 class Encryption
-    attr_accessor :count
+    attr_accessor :count, :text
     def initialize(string)
       @string = string
       @count = 0
       @key = generate_key
+      @text = ""
     end
 
     def encrypt
       @string.each_byte do |each_char|
-          p ascii_num = ((((each_char - 97) + total_rotation(@count)) % 26) + 97).chr
-          p @key
-          p key_rotation(@count)
-          p offset_rotation(@count)
+          ascii_num = ((((each_char - 97) + total_rotation(@count)) % 26) + 97).chr
+          @text << ascii_num
         @count += 1
       end
+      return @text
     end
 
     def total_rotation(count)

@@ -3,29 +3,49 @@ require "enigma/encryption"
 require "enigma/files"
 require "enigma/messages"
 require "enigma/validations"
+require "pry"
 
 class EnigmaEncrpt
 
     include Validations
 
   def initialize
-    @read_write = Files.new()
     @messages = Messages.new()
-    @encrypt = Encryption.new(file_to_encrypt)
   end
+
+    def validate_length
+      if check_argument(ARGV)
+        check_argument(ARGV)
+      else
+          validate_file_type
+      end
+    end
+
+    def validate_file_type
+      if check_file_type(ARGV)
+        check_file_type(ARGV)
+      else
+        validate_file_exist
+      end
+    end
+
+    def validate_file_exist
+      if check_file_exitence(ARGV)
+        check_file_exitence(ARGV)
+      else
+        validations_complete
+      end
+    end
+
+    def validations_complete
+      @read_write = Files.new()
+      @encrypt = Encryption.new(file_to_encrypt)
+      binding.pry
+      start_encryption
+    end
 
   def start_encryption
     @encrypt.encrypt
-  end
-
-  def validations
-    if ARGV.length > 0
-      check_file_type(ARGV)
-      check_file_exitence(ARGV)
-      start_encryption
-    else
-      @messages.argument_error
-    end
   end
 
   def file_to_encrypt
@@ -38,4 +58,4 @@ class EnigmaEncrpt
 end
 
 test = EnigmaEncrpt.new
-p test.validations
+p test.validate_length

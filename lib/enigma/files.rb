@@ -1,7 +1,4 @@
-require_relative "messages"
-require_relative "validations"
 class Files
-  include Validations
     attr_accessor :text
 
   def initialize
@@ -15,8 +12,10 @@ class Files
     @text
   end
 
-  def write_file
-
+  def write_file(encrypted_file, encrypted_text)
+    File.open(encrypted_file, "w+").each do |line|
+      line.puts encrypted_text
+    end
   end
 
   # End of class
