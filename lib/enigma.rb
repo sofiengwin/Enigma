@@ -3,7 +3,6 @@ require "enigma/encryption"
 require "enigma/files"
 require "enigma/messages"
 require "enigma/validations"
-require "pry"
 
 class EnigmaEncrpt
 
@@ -11,6 +10,8 @@ class EnigmaEncrpt
 
   def initialize
     @messages = Messages.new()
+    @read_write = Files.new()
+    @encrypt = Encryption.new(file_to_encrypt)
   end
 
     def validate_length
@@ -38,9 +39,7 @@ class EnigmaEncrpt
     end
 
     def validations_complete
-      @read_write = Files.new()
-      @encrypt = Encryption.new(file_to_encrypt)
-      binding.pry
+
       start_encryption
     end
 
@@ -58,4 +57,4 @@ class EnigmaEncrpt
 end
 
 test = EnigmaEncrpt.new
-p test.validate_length
+p test.start_encryption
