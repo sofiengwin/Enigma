@@ -35,7 +35,7 @@ class EnigmaEncrpt
       # else
       #   validations_complete
       # end
-      return validations_complete unless check_file_exitence(ARGV)
+      return validations_complete unless check_file_exitence(ARGV[0])
     end
 
     def validations_complete
