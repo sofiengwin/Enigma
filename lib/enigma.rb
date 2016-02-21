@@ -46,6 +46,10 @@ class EnigmaEncrpt
     #   end
   end
 
+  def test_write
+    @read_write.validate_encrypted_file(ARGV[1], start_encryption)
+  end
+
   def file_to_encrypt
     @read_write.read_file(ARGV[0]).chomp
   end
@@ -58,4 +62,4 @@ class EnigmaEncrpt
 end
 
 test = EnigmaEncrpt.new
-p test.start_encryption
+p test.test_write

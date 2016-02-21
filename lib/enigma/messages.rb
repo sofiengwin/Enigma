@@ -14,4 +14,8 @@ class Messages
     def file_not_present
       "The file you are looking for does not exit"
     end
+
+    def overwrite_file
+      "The file exist would u like to over write it"
+    end
 end
