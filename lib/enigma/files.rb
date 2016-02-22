@@ -8,15 +8,22 @@ class Files
     @messages = Messages.new()
   end
 
-  def validate_encrypted_file(arguments2, encrypted_text, argument1)
-    File.exist?(arguments2) ? should_i_overwrite(arguments2, encrypted_text, argument1) : write_file(arguments2, encrypted_text)
+# TODO: Error caused by passing only one argument which affects argument2.exist?
+  def validate_encrypted_file(argument2, encrypted_text, argument1)
+    if (File.exist?(argument2) && is_valid_text_file?(argument2))
+     should_i_overwrite(argument2, encrypted_text, argument1)
+   elsif is_valid_text_file?(argument2)
+      write_file(argument2, encrypted_text)
+    else
+      warn "You can only encrypt to valid text files"
+    end
   end
 
-  def should_i_overwrite(arguments2, encrypted_text, argument1)
+  def should_i_overwrite(argument2, encrypted_text, argument1)
     p @messages.overwrite_file
-    choice = STDIN.gets.chomp if is_first_argument_present?(argument1)
+    choice = STDIN.gets.chomp if is_file_present?(argument1, argument2)
     if choice == "yes"
-      write_file(arguments2, encrypted_text)
+      write_file(argument2, encrypted_text)
     else
       puts "Sorry cannot continue with encryption"
     end
