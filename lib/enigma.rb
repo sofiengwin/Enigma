@@ -9,33 +9,61 @@ class EnigmaEncrpt
     include Validations
 
   def initialize
-    @read_write = Files.new()
     @messages = Messages.new()
-    @encrypt = Encryption.new(file_to_encrypt)
+    @read_write = Files.new()
+    @encrypt = Encryption.new
   end
+
+    def validate_length
+      if is_rigth_length?(ARGV)
+        warn check_argument(ARGV)
+      else
+        validate_file_type
+      end
+    end
+
+    def validate_file_type
+      if is_rigth_file_type?(ARGV)
+        warn check_file_type(ARGV)
+      else
+        validate_file_exist
+      end
+    end
+
+    def validate_file_exist
+      if does_file_exist?(ARGV[0])
+        warn check_file_exitence(ARGV[0])
+      else
+        start_encryption
+      end
+    end
 
   def start_encryption
-    @encrypt.encrypt
+    # begin
+      @encrypt.encrypt(file_to_encrypt)
+    # rescue => e
+    #     puts e.class
+    #   end
   end
 
-  def validations
-    if ARGV.length > 0
-      check_file_type(ARGV)
-      check_file_exitence(ARGV)
-      start_encryption
-    else
-      @messages.argument_error
-    end
+  def test_write
+    @read_write.validate_encrypted_file(ARGV[1], start_encryption)
   end
 
   def file_to_encrypt
-    @read_write.read_file(ARGV[0])
+    begin
+    @read_write.read_file(ARGV[0]).chomp
+  rescue
+      p "Closing because there is no file to read"
+    end
   end
 
-
+  # def create_encrypted_text
+  #   @read_write.write_file(ARGV[1], @encrypt.encrypt)
+  # end
 
   #end of class
 end
 
 test = EnigmaEncrpt.new
-p test.validations
+p test.test_write
