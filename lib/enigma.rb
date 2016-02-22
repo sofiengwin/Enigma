@@ -51,7 +51,11 @@ class EnigmaEncrpt
   end
 
   def file_to_encrypt
+    begin
     @read_write.read_file(ARGV[0]).chomp
+  rescue
+      p "Closing because there is no file to read"
+    end
   end
 
   # def create_encrypted_text

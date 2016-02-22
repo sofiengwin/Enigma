@@ -1,4 +1,6 @@
+  require_relative "validations"
 class Encryption
+    include Validations
     attr_accessor :count, :text
     def initialize
       @count = 0
@@ -7,16 +9,17 @@ class Encryption
     end
 
     def encrypt(string)
-      # begin
+      begin
       string.each_byte do |each_char|
           @text << encrypt_different(each_char)
           # @text << ((((each_char - 97) + total_rotation(@count)) % 26) + 97).chr
         @count += 1
       end
       return @text
-    # rescue => e
-    #     puts e.class
-    #   end
+    rescue => e
+        # warn error_message(e.class.to_s)
+        warn "verrrrrrrrrrrrrry bad error"
+      end
     end
 
     def encrypt_different(each_char)

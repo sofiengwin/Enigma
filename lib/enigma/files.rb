@@ -9,7 +9,17 @@ class Files
   end
 
   def validate_encrypted_file(arguments2, encrypted_text)
-    File.exist?(arguments2) ?  write_file(arguments2, encrypted_text): @messages.overwrite_file
+    File.exist?(arguments2) ? should_i_overwrite(arguments2, encrypted_text) : write_file(arguments2, encrypted_text)
+  end
+
+  def should_i_overwrite(arguments2, encrypted_text)
+    p @messages.overwrite_file
+    choice = STDIN.gets.chomp
+    if choice == "yes"
+      write_file(arguments2, encrypted_text)
+    else
+      puts "Sorry cannot continue with encryption"
+    end
   end
 
   def read_file(plain_text_file)
