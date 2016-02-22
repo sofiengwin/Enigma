@@ -12,7 +12,6 @@ class Encryption
       begin
       string.each_byte do |each_char|
           @text << encrypt_different(each_char)
-          # @text << ((((each_char - 97) + total_rotation(@count)) % 26) + 97).chr
         @count += 1
       end
       return @text

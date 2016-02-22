@@ -30,7 +30,7 @@ class EnigmaEncrpt
     begin
     @read_write.read_file(ARGV[0]).chomp
   rescue
-      p "Closing because there is no file to read"
+      system(exit)
     end
   end
 

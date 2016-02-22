@@ -24,8 +24,12 @@ module Validations
     end
   end
 
-  def is_first_argument_present?(argument1)
-    File.exist?(argument1) ? true : false
+  def is_file_present?(argument1, argument2)
+    File.exist?(argument1) && File.exist?(argument2)
+  end
+
+  def is_valid_text_file?(argument2)
+    argument2.include? ".txt"
   end
 
 
