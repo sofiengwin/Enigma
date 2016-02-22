@@ -8,13 +8,13 @@ class Files
     @messages = Messages.new()
   end
 
-  def validate_encrypted_file(arguments2, encrypted_text)
-    File.exist?(arguments2) ? should_i_overwrite(arguments2, encrypted_text) : write_file(arguments2, encrypted_text)
+  def validate_encrypted_file(arguments2, encrypted_text, argument1)
+    File.exist?(arguments2) ? should_i_overwrite(arguments2, encrypted_text, argument1) : write_file(arguments2, encrypted_text)
   end
 
-  def should_i_overwrite(arguments2, encrypted_text)
+  def should_i_overwrite(arguments2, encrypted_text, argument1)
     p @messages.overwrite_file
-    choice = STDIN.gets.chomp
+    choice = STDIN.gets.chomp if is_first_argument_present?(argument1)
     if choice == "yes"
       write_file(arguments2, encrypted_text)
     else
