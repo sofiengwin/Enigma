@@ -16,9 +16,9 @@ class Encryption
       @count += 1
     end
     return @text
-  rescue => e
-    # warn error_message(e.class.to_s)
-    warn 'verrrrrrrrrrrrrry bad error'
+  # rescue => e
+  #   # warn error_message(e.class.to_s)
+  #   warn 'verrrrrrrrrrrrrry bad error'
   end
 
   def encrypt_different(each_char)
@@ -31,7 +31,7 @@ class Encryption
   end
 
   def encrypt_alphabets(each_char)
-    ((((each_char - 97) + total_rotation(@count, @key, offset_key)) % 26) + 97).chr
+    ((((each_char - 97) + total_rotation(@count, @key, offset_key(date_of_encryption))) % 26) + 97).chr
   end
 
   def encrypt_numbers(each_char)
@@ -64,7 +64,7 @@ class Encryption
   #   [*1..9].sample(5).join('')
   # end
 
-  # TODO: Use the correct date format like 020315
+  # # TODO: Use the correct date format like 020315
   # def date_of_encryption
   #   dd = Time.now
   #   "#{dd.day}#{dd.month}#{dd.year.to_s[-2..-1]}".to_i
