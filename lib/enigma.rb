@@ -1,22 +1,22 @@
-require "enigma/version"
-require "enigma/encryption"
-require "enigma/files"
-require "enigma/messages"
-require "enigma/validations"
+require 'enigma/version'
+require 'enigma/encryption'
+require 'enigma/files'
+require 'enigma/messages'
+require 'enigma/validations'
 # TODO: Add support namespace and modules
 class EnigmaEncrpt
-
-    include Validations
+  include Validations
 
   def initialize
-    @messages = Messages.new()
-    @read_write = Files.new()
+    @messages = Messages.new
+    @read_write = Files.new
     @encrypt = Encryption.new
   end
-# TODO: success message with key and date
+
+  # TODO: success message with key and date
   def start_encryption
     # begin
-      @encrypt.encrypt(file_to_encrypt)
+    @encrypt.encrypt(file_to_encrypt)
     # rescue => e
     #     puts e.class
     #   end
@@ -27,18 +27,16 @@ class EnigmaEncrpt
   end
 
   def file_to_encrypt
-    begin
     @read_write.read_file(ARGV[0]).chomp
   rescue
-      system(exit)
-    end
+    system(exit)
   end
 
   # def create_encrypted_text
   #   @read_write.write_file(ARGV[1], @encrypt.encrypt)
   # end
 
-  #end of class
+  # end of class
 end
 
 test = EnigmaEncrpt.new
