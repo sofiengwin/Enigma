@@ -3,7 +3,7 @@ require "enigma/encryption"
 require "enigma/files"
 require "enigma/messages"
 require "enigma/validations"
-
+# TODO: Add support namespace and modules
 class EnigmaEncrpt
 
     include Validations
@@ -13,7 +13,7 @@ class EnigmaEncrpt
     @read_write = Files.new()
     @encrypt = Encryption.new
   end
-
+# TODO: success message with key and date
   def start_encryption
     # begin
       @encrypt.encrypt(file_to_encrypt)

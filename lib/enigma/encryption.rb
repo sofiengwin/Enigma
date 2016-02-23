@@ -4,7 +4,7 @@ class Encryption
     attr_accessor :count, :text
     def initialize
       @count = 0
-      @key = generate_key
+      @key = "51569" #generate_key
       @text = ""
     end
 
@@ -63,10 +63,10 @@ class Encryption
     def generate_key
       [*1..9].sample(5).join("")
     end
-
+# TODO: Use the correct date format like 020315
     def date_of_encryption
       dd = Time.now
-      "#{dd.day}#{dd.month}#{dd.year}".to_i
+      "#{dd.day}#{dd.month}#{dd.year.to_s[-2..-1]}".to_i
     end
 
     def offset_key
