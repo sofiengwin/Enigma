@@ -16,25 +16,6 @@ class Decryption
     end
     @text
   end
-  #
-  # def total_rotation(count)
-  #   key_rotation(count) + offset_rotation(count)
-  # end
-  #
-  # def key_rotation(count)
-  #   shift = count % 5
-  #   @key[shift..shift + 1].to_i
-  # end
-  #
-  # def offset_rotation(count)
-  #   shift = count % 4
-  #   offset_key[shift].to_i
-  # end
-  #
-  # def offset_key
-  # date_key = 22216
-  # date_key = date_key **2
-  # date_key.to_s[-4..-1]
-  # end
+
   # End of class
 end
