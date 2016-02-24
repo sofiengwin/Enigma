@@ -13,9 +13,13 @@ module EnigmaHelpers
     offsetkey[shift].to_i
   end
 
+  def format_month(month)
+    month < 10 ? "0" << month.to_s : month
+  end
+
   def date_of_encryption
     dd = Time.now
-    "#{dd.day}#{dd.month}#{dd.year.to_s[-2..-1]}".to_i
+    "#{dd.day}#{format_month(dd.month)}#{dd.year.to_s[-2..-1]}".to_i
   end
 
   def offset_key(date_of_encryption)
