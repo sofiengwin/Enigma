@@ -24,7 +24,7 @@ module EnigmaHelpers
 
   def offset_key(date_of_encryption)
     date_key = date_of_encryption.to_i
-    date_key ** 2
+    date_key = date_key ** 2
     date_key.to_s[-4..-1]
   end
   # End of module

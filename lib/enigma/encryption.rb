@@ -6,7 +6,7 @@ class Encryption
   attr_accessor :count, :text
   def initialize
     @count = 0
-    @key = '51569' # generate_key
+    @key = '56235' # generate_key
     @text = ''
   end
 
@@ -35,11 +35,11 @@ class Encryption
   end
 
   def encrypt_numbers(each_char)
-    ascii_num = ((((each_char - 48) + total_rotation(@count)) % 10) + 48).chr
+    ascii_num = ((((each_char - 48) + total_rotation(@count, @key, offset_key(date_of_encryption))) % 10) + 48).chr
   end
 
   def encrypt_symbols(each_char)
-    ascii_num = ((((each_char - 32) + total_rotation(@count)) % 16) + 32).chr
+    ascii_num = ((((each_char - 32) + total_rotation(@count, @key, offset_key(date_of_encryption))) % 16) + 32).chr
   end
 
   # def encrypt_special_characters(each_char)
