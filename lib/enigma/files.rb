@@ -1,4 +1,5 @@
 require_relative 'validations'
+require_relative "messages"
 class Files
   include Validations
   attr_accessor :text
