@@ -15,31 +15,31 @@ class Encryption
       @text << encrypt_different(each_char)
       @count += 1
     end
-    return @text
-  # rescue => e
-  #   # warn error_message(e.class.to_s)
-  #   warn 'verrrrrrrrrrrrrry bad error'
+    @text
   end
 
   def encrypt_different(each_char)
     case each_char
     when 32..47 then encrypt_symbols(each_char)
     when 48..57 then encrypt_numbers(each_char)
-    # when 91..96 then encrypt_special_characters(each_char)
     when 97..122 then encrypt_alphabets(each_char)
     end
   end
 
   def encrypt_alphabets(each_char)
-    ((((each_char - 97) + total_rotation(@count, @key, offset_key(date_of_encryption))) % 26) + 97).chr
+    ((((each_char - 97) + get_total_rotation) % 26) + 97).chr
   end
 
   def encrypt_numbers(each_char)
-    ascii_num = ((((each_char - 48) + total_rotation(@count, @key, offset_key(date_of_encryption))) % 10) + 48).chr
+    ((((each_char - 48) + get_total_rotation) % 10) + 48).chr
   end
 
   def encrypt_symbols(each_char)
-    ascii_num = ((((each_char - 32) + total_rotation(@count, @key, offset_key(date_of_encryption))) % 16) + 32).chr
+    ((((each_char - 32) + get_total_rotation) % 16) + 32).chr
+  end
+
+  def get_total_rotation
+    total_rotation(@count, @key, offset_key(date_of_encryption))
   end
 
 # end of class

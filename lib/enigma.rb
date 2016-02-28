@@ -14,30 +14,28 @@ class EnigmaEncrpt
   end
 
   # TODO: success message with key and date
+  # TODO: Add ..end.. to the end of every message
   def start_encryption
-    # begin
     @encrypt.encrypt(file_to_encrypt)
-    # rescue => e
-    #     puts e.class
-    #   end
   end
 
   def test_write
     @read_write.validate_encrypted_file(ARGV[1], start_encryption, ARGV[0])
+    encryption_success
   end
 
   def file_to_encrypt
-    @read_write.read_file(ARGV[0]).chomp
+    @read_write.read_file(ARGV[0]).chomp #<< "..end.."
   rescue
     system(exit)
   end
 
-  # def create_encrypted_text
-  #   @read_write.write_file(ARGV[1], @encrypt.encrypt)
-  # end
+  def encryption_success
+    "created #{ARGV[0]} with key #{@encrypt.key} and date #{@encrypt.date_of_encryption}"
+  end
 
   # end of class
 end
 
-# test = EnigmaEncrpt.new
-# p test.test_write
+test = EnigmaEncrpt.new
+p test.test_write
