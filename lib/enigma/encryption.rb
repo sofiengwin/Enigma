@@ -6,13 +6,13 @@ class Encryption
   attr_accessor :count, :text, :key
   def initialize
     @count = 0
-    @key = "51569" # generate_key
+    @key = generate_key
     @text = ""
   end
 
   def encrypt(string)
     string.each_byte do |each_char|
-      puts "#{each_char.chr} : #{@count}"
+      puts "#{key_rotation(@count, @key)} #{offset_rotation(@count, "6656")}"
       @text << encrypt_different(each_char)
       @count += 1
     end

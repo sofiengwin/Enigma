@@ -4,7 +4,7 @@ module ENIGMATICCRACKER
   class Crack
     include EnigmaHelpers
     def initialize
-      @possible_keys = ENIGMATICKEYS::PossibleKeys.new("test", "290216")
+      @possible_keys = ENIGMATICKEYS::PossibleKeys.new("nd..", "290216")
     end
 
     def get_partial

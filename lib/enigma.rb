@@ -25,7 +25,7 @@ class EnigmaEncrpt
   end
 
   def file_to_encrypt
-    @read_write.read_file(ARGV[0]).chomp #<< "..end.."
+    @read_write.read_file(ARGV[0]).chomp << "nd.."
   rescue
     system(exit)
   end
@@ -37,5 +37,5 @@ class EnigmaEncrpt
   # end of class
 end
 
-test = EnigmaEncrpt.new
-p test.test_write
+# test = EnigmaEncrpt.new
+# p test.test_write

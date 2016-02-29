@@ -1,10 +1,14 @@
 module EnigmaHelpers
+  def generate_key
+  [*1..9].sample(5).join('')
+  end
+  
   def total_rotation(count, key, offsetkey)
     key_rotation(count, key) + offset_rotation(count, offsetkey)
   end
 
   def key_rotation(count, key)
-    shift = count % 5
+    shift = count % 4
     key[shift..shift + 1].to_i
   end
 
