@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe EnigmaEncrpt do
   before :each do
@@ -7,10 +7,10 @@ describe EnigmaEncrpt do
   end
 
   describe "#new" do
-      encrypt = EnigmaEncrpt.new
-      it "should create a new instance" do
-        encrypt.should be_an_instance_of EnigmaEncrpt
-      end
+    encrypt = EnigmaEncrpt.new
+    it "should create a new instance" do
+      encrypt.should be_an_instance_of EnigmaEncrpt
+    end
   end
 
   describe "#start_encryption" do
@@ -18,5 +18,4 @@ describe EnigmaEncrpt do
       expect(@encrypt.encrypt("hello world")).not_to eql "hello world"
     end
   end
-
 end

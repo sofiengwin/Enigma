@@ -1,11 +1,11 @@
-require_relative 'validations'
+require_relative "validations"
 require_relative "messages"
 class Files
   include Validations
   attr_accessor :text
 
   def initialize
-    @text = ''
+    @text = ""
     @messages = Messages.new
   end
 
@@ -16,17 +16,17 @@ class Files
     elsif is_valid_text_file?(argument2)
       write_file(argument2, encrypted_text)
     else
-      warn 'You can only encrypt to valid text files'
+      warn "You can only encrypt to valid text files"
     end
   end
 
   def should_i_overwrite(argument2, encrypted_text, argument1)
     p @messages.overwrite_file
     choice = STDIN.gets.chomp if is_file_present?(argument1, argument2)
-    if choice == 'yes'
+    if choice == "yes"
       write_file(argument2, encrypted_text)
     else
-      puts 'Sorry cannot continue with encryption'
+      puts "Sorry cannot continue with encryption"
     end
   end
 
@@ -40,7 +40,7 @@ class Files
   end
 
   def write_file(encrypted_file, encrypted_text)
-    File.open(encrypted_file, 'w') { |f| f.write(encrypted_text) }
+    File.open(encrypted_file, "w") { |f| f.write(encrypted_text) }
   end
   # File.open(local_filename, 'w') {|f| f.write(doc) }
   # End of class

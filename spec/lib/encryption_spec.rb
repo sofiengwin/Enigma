@@ -20,10 +20,10 @@ describe Encryption do
       expect(@encrypt.key).to eql "51569"
     end
 
-      it "generate a new key on each instance" do
-        key_test = Encryption.new
-        expect(@encrypt.key).not_to eql key_test.key
-      end
+    it "generate a new key on each instance" do
+      key_test = Encryption.new
+      expect(@encrypt.key).not_to eql key_test.key
+    end
   end
 
   describe "#encrypt_alphabets" do
@@ -52,22 +52,22 @@ describe Encryption do
   end
 
   describe "#total_rotation" do
-  it "should add A rotation of key to A rotation of Date offset" do
-    expect(@encrypt.total_rotation(1, "51569", 270216)).to eql 61
-  end
+    it "should add A rotation of key to A rotation of Date offset" do
+      expect(@encrypt.total_rotation(1, "51569", 270_216)).to eql 61
+    end
 
-  it "should add B rotation of key to B rotation of Date offset" do
-    expect(@encrypt.total_rotation(2, "51569", 270216)).to eql 61
-  end
+    it "should add B rotation of key to B rotation of Date offset" do
+      expect(@encrypt.total_rotation(2, "51569", 270_216)).to eql 61
+    end
 
-  it "should add C rotation of key to C rotation of Date offset" do
-    expect(@encrypt.total_rotation(3, "51569", 270216)).to eql 61
-  end
+    it "should add C rotation of key to C rotation of Date offset" do
+      expect(@encrypt.total_rotation(3, "51569", 270_216)).to eql 61
+    end
 
-  it "should add D rotation of key to D rotation of Date offset" do
-    expect(@encrypt.total_rotation(4, "51569", 270216)).to eql 61
+    it "should add D rotation of key to D rotation of Date offset" do
+      expect(@encrypt.total_rotation(4, "51569", 270_216)).to eql 61
+    end
   end
-end
 
   describe "#key_rotation" do
     it "it can return correct A rotation" do
@@ -100,7 +100,7 @@ end
 
   describe "#date_offset" do
     it "return encryption format date" do
-      expect(@encrypt.offset_key(240216)).to eql "6656"
+      expect(@encrypt.offset_key(240_216)).to eql "6656"
     end
   end
 

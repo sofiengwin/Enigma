@@ -1,8 +1,8 @@
-require 'enigma/decryption.rb'
-require 'enigma/files.rb'
-require 'enigma/messages'
-require 'enigma/enigmahelpers'
-require 'enigma/validations'
+require "enigma/decryption.rb"
+require "enigma/files.rb"
+require "enigma/messages"
+require "enigma/enigmahelpers"
+require "enigma/validations"
 class EnigmaDecrypt
   include EnigmaHelpers
   include Validations
@@ -21,7 +21,7 @@ class EnigmaDecrypt
     if validate_decryption?(ARGV[2], ARGV[3])
       @read_write.validate_encrypted_file(ARGV[1], decrypt, ARGV[0])
     else
-      warn 'Incorrect key or date use the correct format'
+      warn "Incorrect key or date use the correct format"
       exit
     end
   end
