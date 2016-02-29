@@ -1,7 +1,7 @@
 module Validations
   def check_file_type(arguments)
     arguments.each_with_index do |value, index|
-      return @messages.file_type_error unless value.include? '.txt'
+      return @messages.file_type_error unless value.include? ".txt"
       break if index == 1
     end
   end
@@ -17,11 +17,11 @@ module Validations
   # TODO: Refactor this method to be less than six lines
   def error_message(error_class)
     case error_class
-    when 'TypeError' then check_argument
-    when 'Errno::ENOENT' then check_file_exitence
-    when 'NoMethodError' then check_file_exitence
+    when "TypeError" then check_argument
+    when "Errno::ENOENT" then check_file_exitence
+    when "NoMethodError" then check_file_exitence
     else
-      'Uknown Error'
+      "Uknown Error"
     end
   end
 
@@ -30,7 +30,7 @@ module Validations
   end
 
   def is_valid_text_file?(argument2)
-    argument2.include? '.txt'
+    argument2.include? ".txt"
   end
 
   def validate_decryption?(key, date_offset)

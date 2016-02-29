@@ -1,8 +1,8 @@
-require 'enigma/version'
-require 'enigma/encryption'
-require 'enigma/files'
-require 'enigma/messages'
-require 'enigma/validations'
+require "enigma/version"
+require "enigma/encryption"
+require "enigma/files"
+require "enigma/messages"
+require "enigma/validations"
 # TODO: Add support namespace and modules
 class EnigmaEncrpt
   include Validations

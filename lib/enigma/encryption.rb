@@ -1,4 +1,4 @@
-require_relative 'validations'
+require_relative "validations"
 require_relative "enigmahelpers"
 class Encryption
   include Validations
@@ -6,12 +6,13 @@ class Encryption
   attr_accessor :count, :text, :key
   def initialize
     @count = 0
-    @key = '51569' # generate_key
-    @text = ''
+    @key = "51569" # generate_key
+    @text = ""
   end
 
   def encrypt(string)
     string.each_byte do |each_char|
+      puts "#{each_char.chr} : #{@count}"
       @text << encrypt_different(each_char)
       @count += 1
     end
@@ -42,5 +43,5 @@ class Encryption
     total_rotation(@count, @key, offset_key(date_of_encryption))
   end
 
-# end of class
+  # end of class
 end

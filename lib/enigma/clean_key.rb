@@ -11,5 +11,5 @@ module ENIGMATICCLEAN
 
     # end of class
   end
-# end of module
+  # end of module
 end
