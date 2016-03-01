@@ -3,6 +3,7 @@ require "spec_helper"
 describe Encryption do
   before :each do
     @encrypt = Encryption.new
+    allow(@encrypt).to receive(:generate_key) {"51569"}
   end
 
   describe "#new" do
@@ -17,7 +18,7 @@ describe Encryption do
 
   describe "key" do
     it "has a key" do
-      expect(@encrypt.key).to eql "51569"
+      expect(@encrypt.generate_key).to eql "51569"
     end
 
     it "generate a new key on each instance" do
@@ -100,7 +101,7 @@ describe Encryption do
 
   describe "#date_offset" do
     it "return encryption format date" do
-      expect(@encrypt.offset_key(240_216)).to eql "6656"
+      expect(@encrypt.offset_key(240216)).to eql "6656"
     end
   end
 
