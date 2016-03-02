@@ -2,42 +2,71 @@
 <a href="https://codeclimate.com/github/andela-gogbara/Enigma/coverage"><img src="https://codeclimate.com/github/andela-gogbara/Enigma/badges/coverage.svg" /></a>
 # Enigma
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/enigma`. To experiment with that code, run `bin/console` for an interactive prompt.
+Enygma is an encryption engine built (as a gem) with ruby programming language. It follows the principles of Enigma Encryption Machine to encrypt and decrypt files. The gem also offers the feature of cracking a file.
 
-TODO: Delete this and the text above, and describe your gem
+##Installation
 
-## Installation
+To install as a gem and run as a termina/command line program, run the following command in you terminal(command promt for Windows)
 
-Add this line to your application's Gemfile:
+$ gem install enygma
+If you are on Mac, you might have to run the following after installation to be able to run the console commands:
 
-```ruby
-gem 'enigma'
-```
+$ rbenv rehash
+If you want to use 'Enygma' in your ruby application, add this line to your application's Gemfile:
 
+gem 'enygma'
 And then execute:
 
-    $ bundle
+$ bundle
 
-Or install it yourself as:
+Usage
 
-    $ gem install enigma
+This gem provides you with three command line actions, encrypt, decrypt, and crack
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/enigma. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+When you have installed the enygma gem, you can encrypt a file by changing to the directory that contantains the file, and run any of the following commands
 
 
-## License
+###Encryption
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+$ encrypt <filename> [<destination-filename>]
+
+###Decryption
+
+$ decrypt <cypher-filename> [<plain-filename>] <key> <date>
+
+###Cracking
+
+$ crack <cypher-filename> [<plain-filename>] <date>
+
+##Example Usage
+
+To encrypt a file name file.txt, and in whose containing I have changed to
+
+$ encrypt message.txt encrypted.txt
+
+=>#Created encrypted.txt with the key 51569 and date 030316
+To decrypt a file named file named encrypted.txt
+
+$ decrypt encrypted.txt decrypted.txt 51569 030316
+
+=>#Created decrypted.txt with key 51569 and date 030316
+To crack a file named encrypted.txt
+
+$ crack encrypted.txt crack.txt 030316
+
+=>#Created cracked.txt with key 51569 and date 030316
+
+##Limitations
+
+The character set of this gem is limited; lower case alphabets, numbers, space, comma and period characters.
+The gem generates the the key for the encryption, and does not allow user to choose their prefered digit combinations
+The gem does not have a keys manager to help users save their keys
+
+##Improvement
+
+The character set suported by the gem will be increased
+The application should able to allow users choose their encryption key upon encrypting a file.
+The gem should be able to offer users the option of creating a text file, when they enter an invalid file name.
+The error handling will be increased to show proper error message for any error that can occur.
+Provide a key management system to store keys for easy reference.
 
