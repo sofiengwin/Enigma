@@ -17,27 +17,23 @@ class EnigmaEncrpt
 
   # TODO: success message with key and date
   # TODO: Add ..end.. to the end of every message
+  # TODO: Use a test_encrypt file for all rspec tests
   def start_encryption
     @encrypt.encrypt(file_to_encrypt)
   end
 
-  def test_write
+  def encrypt_write
     @read_write.validate_encrypted_file(@arg_two, start_encryption, @arg_one)
-    encryption_success
   end
 
   def file_to_encrypt
-    @read_write.read_file(@arg_one).chomp << "nd.."
+    @read_write.read_file(@arg_one).chomp << "..nd.."
   rescue
     exit
-  end
-
-  def encryption_success
-    "created #{@arg_two} with key #{@encrypt.key} and date #{@encrypt.date_of_encryption}"
   end
 
   # end of class
 end
 
 # test = EnigmaEncrpt.new(ARGV[0], ARGV[1])
-# p test.test_write
+# p test.encrypt_write

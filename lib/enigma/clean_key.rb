@@ -1,8 +1,11 @@
 require_relative "crack_key"
 module ENIGMATICCLEAN
   class CleanKey
-    def initialize
-      @clean_keys = ENIGMATICCRACKER::Crack.new
+    def initialize(weakness, date, encrypted_file)
+      @weakness = weakness
+      @date = date
+      @encrypted_file = encrypted_file
+      @clean_keys = ENIGMATICCRACKER::Crack.new(@weakness, @date, @encrypted_file)
     end
 
     def cracked_key

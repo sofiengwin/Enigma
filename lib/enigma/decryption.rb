@@ -11,7 +11,6 @@ class Decryption
 
   def decrypt(string)
     string.each_byte do |each_char|
-      puts " #{@count}: #{each_char.chr}: #{key_rotation(@count, @key)} #{offset_rotation(@count, offset_key(date_of_encryption))}"
       @text << @character_map[decrypt_helper(each_char, @count)]
       @count += 1
     end

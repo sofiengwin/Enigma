@@ -3,10 +3,6 @@ class Messages
     "Please enter the correct number of argument"
   end
 
-  def success_message
-    "You message was successfully encrypted"
-  end
-
   def file_type_error
     "This enigma machine only works with .txt files e.g master.txt"
   end
@@ -18,4 +14,8 @@ class Messages
   def overwrite_file
     "The file exist would u like to over write it"
   end
+
+    def success_message(file_name, key, date)
+      "created #{file_name} with key #{key} and date #{date}"
+    end
 end
