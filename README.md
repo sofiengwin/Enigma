@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/andela-gogbara/Enigma"><img src="https://codeclimate.com/github/andela-gogbara/Enigma/badges/gpa.svg" /></a>
+<a href="https://codeclimate.com/github/andela-gogbara/Enigma/coverage"><img src="https://codeclimate.com/github/andela-gogbara/Enigma/badges/coverage.svg" /></a>
 # Enigma
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/enigma`. To experiment with that code, run `bin/console` for an interactive prompt.
