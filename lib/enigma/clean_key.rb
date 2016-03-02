@@ -6,7 +6,7 @@ module ENIGMATICCLEAN
     end
 
     def testing_link
-      @clean_keys.get_partial
+      @clean_keys.find_key(@clean_keys.get_partial)
     end
 
     # end of class
