@@ -5,7 +5,9 @@ describe ENIGMATICKEYS::PossibleKeys do
     # allow(@possible_keys).to receive(:file_to_crack) {"hello"}
   end
 describe "#new" do
-  it "creates a new instance"
+  it "creates a new instance" do
+    expect(@possible_keys).to be_an_instance_of ENIGMATICKEYS::PossibleKeys
+    end
   end
 
   describe "#file_to_crack" do
@@ -36,11 +38,8 @@ describe "#new" do
 
   describe "#get_partial_key" do
     it "should return the correct multi dimensional array with correct rotation" do
-      # allow(@possible_keys).to receive(:find_rotation).with("o")
-      expect(@possible_keys.get_partial_key[0]).to eql ["05", "44", "83"]
-      expect(@possible_keys.get_partial_key[1]).to eql
-      expect(@possible_keys.get_partial_key[2]).to eql
-      expect(@possible_keys.get_partial_key[3]).to eql
+      # allow(@possible_keys).to receive(:find_rotation) {2}
+      expect(@possible_keys.get_partial_key).to be_kind_of Array
     end
   end
 end

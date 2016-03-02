@@ -7,7 +7,9 @@ require "enigma/validations"
 class EnigmaEncrpt
   include Validations
 
-  def initialize
+  def initialize(arg_one, arg_two)
+    @arg_one = arg_one
+    @arg_two = arg_two
     @messages = Messages.new
     @read_write = Files.new
     @encrypt = Encryption.new
@@ -20,22 +22,22 @@ class EnigmaEncrpt
   end
 
   def test_write
-    @read_write.validate_encrypted_file(ARGV[1], start_encryption, ARGV[0])
+    @read_write.validate_encrypted_file(@arg_two, start_encryption, @arg_one)
     encryption_success
   end
 
   def file_to_encrypt
-    @read_write.read_file(ARGV[0]).chomp << "nd.."
+    @read_write.read_file(@arg_one).chomp << "nd.."
   rescue
-    system(exit)
+    exit
   end
 
   def encryption_success
-    "created #{ARGV[0]} with key #{@encrypt.key} and date #{@encrypt.date_of_encryption}"
+    "created #{@arg_two} with key #{@encrypt.key} and date #{@encrypt.date_of_encryption}"
   end
 
   # end of class
 end
 
-# test = EnigmaEncrpt.new
+# test = EnigmaEncrpt.new(ARGV[0], ARGV[1])
 # p test.test_write
