@@ -37,5 +37,5 @@ class EnigmaEncrpt
   # end of class
 end
 
-test = EnigmaEncrpt.new
-p test.test_write
+# test = EnigmaEncrpt.new
+# p test.test_write
