@@ -3,7 +3,7 @@ require "spec_helper"
 describe Encryption do
   before :each do
     @encrypt = Encryption.new
-    allow(@encrypt).to receive(:generate_key) {"51569"}
+    allow(@encrypt).to receive(:generate_key) { "51569" }
   end
 
   describe "#new" do
@@ -31,19 +31,19 @@ describe Encryption do
 
   describe "#total_rotation" do
     it "should add A rotation of key to A rotation of Date offset" do
-      expect(@encrypt.total_rotation(1, "51569", 270216)).to eql 15
+      expect(@encrypt.total_rotation(1, "51569", 270_216)).to eql 15
     end
 
     it "should add B rotation of key to B rotation of Date offset" do
-      expect(@encrypt.total_rotation(2, "51569", 270216)).to eql 56
+      expect(@encrypt.total_rotation(2, "51569", 270_216)).to eql 56
     end
 
     it "should add C rotation of key to C rotation of Date offset" do
-      expect(@encrypt.total_rotation(3, "51569", 270216)).to eql 70
+      expect(@encrypt.total_rotation(3, "51569", 270_216)).to eql 70
     end
 
     it "should add D rotation of key to D rotation of Date offset" do
-      expect(@encrypt.total_rotation(4, "51569", 270216)).to eql 51
+      expect(@encrypt.total_rotation(4, "51569", 270_216)).to eql 51
     end
   end
 
@@ -78,7 +78,7 @@ describe Encryption do
 
   describe "#date_offset" do
     it "return encryption format date" do
-      expect(@encrypt.offset_key(240216)).to eql "6656"
+      expect(@encrypt.offset_key(240_216)).to eql "6656"
     end
   end
 

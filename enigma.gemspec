@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "enigma/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "enigma"
+  spec.name          = "sofien-enigma"
   spec.version       = Enigma::VERSION
   spec.authors       = ["Ogbara Godwin"]
   spec.email         = ["godwin.onisofien@andela.com"]

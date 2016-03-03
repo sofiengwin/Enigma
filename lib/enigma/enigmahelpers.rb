@@ -4,7 +4,7 @@ module EnigmaHelpers
   end
 
   def generate_key
-  [*1..9].sample(5).join('')
+    [*1..9].sample(5).join("")
   end
 
   def total_rotation(count, key, offsetkey)
@@ -32,7 +32,7 @@ module EnigmaHelpers
 
   def offset_key(date_of_encryption)
     date_key = date_of_encryption.to_i
-    date_key = date_key ** 2
+    date_key **= 2
     date_key.to_s[-4..-1]
   end
   # End of module

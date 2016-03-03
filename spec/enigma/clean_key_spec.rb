@@ -1,9 +1,9 @@
 require "spec_helper"
-describe ENIGMATICCLEAN::CleanKey do
-  subject { ENIGMATICCLEAN::CleanKey.new("nd..", "020316", "encrypted.txt")}
+describe ENIGMA::Crack do
+  subject { ENIGMA::Crack.new("nd..", "020316", "encrypted.txt") }
 
   describe "#new" do
-    it {expect(subject).to be_an_instance_of ENIGMATICCLEAN::CleanKey}
+    it { expect(subject).to be_an_instance_of ENIGMA::Crack }
   end
 
   describe "#clean_key" do
