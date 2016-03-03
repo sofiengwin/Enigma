@@ -28,7 +28,7 @@ class EnigmaEncrpt
   end
 
   def encryption_success
-    "created #{ARGV[0]} with key #{@encrypt.key} and date #{@encrypt.date_of_encryption}"
+    "created #{ARGV[1]} with key #{@encrypt.key} and date #{@encrypt.date_of_encryption}"
   end
 
   # end of class

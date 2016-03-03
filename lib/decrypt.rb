@@ -40,7 +40,7 @@ class EnigmaDecrypt
   end
 
   def decryption_success
-    "created #{ARGV[0]} with key #{@key} and date #{@date}"
+    "created #{ARGV[1]} with key #{@key} and date #{@date}"
   end
 end
 

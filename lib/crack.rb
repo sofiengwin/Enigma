@@ -14,16 +14,17 @@ class EnigmaCrack
     @read_write = Files.new
     @messages = Messages.new
     @clean = ENIGMATICCLEAN::CleanKey.new(@weakness, @date, @encrypted_file)
+    @key = @clean.clean_key
   end
 
-  # TODO: Handle last_four count issues that migth arise
-  # TODO: start testing from file to encrypt
-  # TODO: Validate date format
-  # TODO: Validate agrv[0] error
 
   def decrypted_text
-    @decrypt = Decryption.new(@clean.clean_key, @date)
+    @decrypt = Decryption.new(@key, @date)
     @decrypt.decrypt(file_to_crack)
+  end
+
+  def testing
+    @key
   end
 
   def crack_write
@@ -36,7 +37,7 @@ class EnigmaCrack
   end
 
   def crack_success
-    "created #{ARGV[0]} with key #{@clean.clean_key} and date #{@date}"
+    "created #{ARGV[1]} with key #{@key} and date #{@date}"
   end
   end
 test = EnigmaCrack.new("nd..", ARGV[2], ARGV[0], ARGV[1])
