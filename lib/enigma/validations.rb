@@ -14,7 +14,6 @@ module Validations
     @messages.argument_error
   end
 
-  # TODO: Refactor this method to be less than six lines
   def error_message(error_class)
     case error_class
     when "TypeError" then check_argument

@@ -25,6 +25,7 @@ class EnigmaDecrypt
   def decrypt_write
     if validate_decryption?(@key, @date)
       @read_write.validate_encrypted_file(@plain_file, decrypt, @encrypted_file)
+      decryption_success
     else
       warn "Incorrect key or date use the correct format"
       exit
@@ -37,8 +38,11 @@ class EnigmaDecrypt
     #  warn error_message(e.class.to_s)
     exit
   end
-  # End of class
+
+  def decryption_success
+    "created #{ARGV[0]} with key #{@key} and date #{@date}"
+  end
 end
 
-# test = EnigmaDecrypt.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3])
-# p test.decrypt_write
+test = EnigmaDecrypt.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3])
+p test.decrypt_write

@@ -42,6 +42,4 @@ class Files
   def write_file(encrypted_file, encrypted_text)
     File.open(encrypted_file, "w") { |f| f.write(encrypted_text) }
   end
-  # File.open(local_filename, 'w') {|f| f.write(doc) }
-  # End of class
 end

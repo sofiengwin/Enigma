@@ -28,14 +28,17 @@ class EnigmaCrack
 
   def crack_write
     @read_write.validate_encrypted_file(@plain_file, decrypted_text, @encrypted_file)
+    crack_success
   end
 
   def file_to_crack
     @read_write.read_file(@encrypted_file)
   end
 
-    # end of class
+  def crack_success
+    "created #{ARGV[0]} with key #{@clean.clean_key} and date #{@date}"
   end
-# test = EnigmaCrack.new("nd..", ARGV[2], ARGV[0], ARGV[1])
-#
-# p test.crack_write
+  end
+test = EnigmaCrack.new("nd..", ARGV[2], ARGV[0], ARGV[1])
+
+p test.crack_write
