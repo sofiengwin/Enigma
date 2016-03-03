@@ -44,5 +44,5 @@ class EnigmaDecrypt
   end
 end
 
-test = EnigmaDecrypt.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3])
-p test.decrypt_write
+# test = EnigmaDecrypt.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3])
+# p test.decrypt_write

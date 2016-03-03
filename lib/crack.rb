@@ -40,6 +40,6 @@ class EnigmaCrack
     "created #{ARGV[1]} with key #{@key} and date #{@date}"
   end
   end
-test = EnigmaCrack.new("nd..", ARGV[2], ARGV[0], ARGV[1])
-
-p test.crack_write
+# test = EnigmaCrack.new("nd..", ARGV[2], ARGV[0], ARGV[1])
+#
+# p test.crack_write
