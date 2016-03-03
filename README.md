@@ -4,16 +4,16 @@
 
 Enygma is an encryption engine built (as a gem) with ruby programming language. It follows the principles of Enigma Encryption Machine to encrypt and decrypt files. The gem also offers the feature of cracking a file.
 
-##Installation
+## Installation
 
 To install as a gem and run as a termina/command line program, run the following command in you terminal(command promt for Windows)
 
-  $ gem install enygma
+    $ gem install enygma
 
 gem 'enygma'
 And then execute:
 
-  $ bundle
+    $ bundle
 
 ##Usage
 
@@ -24,33 +24,35 @@ When you have installed the enygma gem, you can encrypt a file by changing to th
 
 ###Encryption
 
-$ encrypt <filename> [<destination-filename>]
+    $ encrypt <filename> [<destination-filename>]
 
 
 ###Decryption
 
-  $ decrypt <cypher-filename> [<plain-filename>] <key> <date>
+    $ decrypt <cypher-filename> [<plain-filename>] <key> <date>
 
 ###Cracking
 
-  $ crack <cypher-filename> [<plain-filename>] <date>
+    $ crack <cypher-filename> [<plain-filename>] <date>
 
 
 ##Example Usage
 
-  $ encrypt message.txt encrypted.txt
+    $ encrypt message.txt encrypted.txt
 
-=>#Created encrypted.txt with the key 51569 and date 030316
+    =>#Created encrypted.txt with the key 51569 and date 030316
+
 To decrypt a file named file named encrypted.txt
 
-  $ decrypt encrypted.txt decrypted.txt 51569 030316
+    $ decrypt encrypted.txt decrypted.txt 51569 030316
 
-=>#Created decrypted.txt with key 51569 and date 030316
+    =>#Created decrypted.txt with key 51569 and date 030316
+
 To crack a file named encrypted.txt
 
-  $ crack encrypted.txt crack.txt 030316
+    $ crack encrypted.txt crack.txt 030316
 
-=>#Created cracked.txt with key 51569 and date 030316
+    =>#Created cracked.txt with key 51569 and date 030316
 
 
 
