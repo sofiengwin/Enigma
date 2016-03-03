@@ -16,7 +16,7 @@ class Files
     elsif is_valid_text_file?(argument2)
       write_file(argument2, encrypted_text)
     else
-      warn "You can only encrypt to valid text files"
+      print "You can only encrypt to valid text files"
     end
   end
 

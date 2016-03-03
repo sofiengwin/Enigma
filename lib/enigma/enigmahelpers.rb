@@ -1,4 +1,8 @@
 module EnigmaHelpers
+  def character_map
+    [*"a".."z"] + [*"0".."9"] + [".", ",", " "]
+  end
+
   def generate_key
   [*1..9].sample(5).join('')
   end
