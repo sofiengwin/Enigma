@@ -1,12 +1,12 @@
-  require "spec_helper"
+require "spec_helper"
 describe ENIGMATICKEYS::PossibleKeys do
   before :each do
     @possible_keys = ENIGMATICKEYS::PossibleKeys.new("nd..", "10316", "test.txt")
     # allow(@possible_keys).to receive(:file_to_crack) {"hello"}
   end
-describe "#new" do
-  it "creates a new instance" do
-    expect(@possible_keys).to be_an_instance_of ENIGMATICKEYS::PossibleKeys
+  describe "#new" do
+    it "creates a new instance" do
+      expect(@possible_keys).to be_an_instance_of ENIGMATICKEYS::PossibleKeys
     end
   end
 

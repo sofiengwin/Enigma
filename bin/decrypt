@@ -2,7 +2,7 @@
 
 require "enigma"
 
-if ARGV[0] && (ARGV[0] == 'help' || ARGV[0] == '--help' || ARGV[0] == '-h')
+if ARGV[0] && (ARGV[0] == "help" || ARGV[0] == "--help" || ARGV[0] == "-h")
   Enygma::Help.decrypt
 elsif ARGV.length < 3 || ARGV.length > 4
   puts "Incorrect number of argument. Run with --help for explanation"
@@ -19,7 +19,5 @@ elsif ARGV.length == 4 && File.file?(ARGV[1])
 else
   if ARGV.length == 4
     puts Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).file_to_decript
-  else
-    # Enygma::Decryptor.new(ARGV[0], ARGV[1], ARGV[2]).decrypt
   end
 end

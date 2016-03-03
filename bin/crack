@@ -4,4 +4,4 @@ require "enigma"
 
 # puts ENIGMATICKEYS::PossibleKeys.new("nd..", ARGV[0], ARGV[1]).get_partial_key
 
-puts ENIGMA::Crack.new(ARGV[0], ARGV[1]).cracked_key
+p ENIGMA::Crack.new(ARGV[0], ARGV[1], ARGV[2]).crack_write

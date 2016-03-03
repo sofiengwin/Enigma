@@ -15,7 +15,7 @@ class Messages
     "The file exist would u like to over write it"
   end
 
-    def success_message(file_name, key, date)
-      "created #{file_name} with key #{key} and date #{date}"
-    end
+  def success_message(file_name, key, date)
+    "created #{file_name} with key #{key} and date #{date}"
+  end
 end
