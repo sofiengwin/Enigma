@@ -19,8 +19,8 @@ module ENIGMATICKEYS
     def get_partial_key
       @partial_key = []
       @weakness.each_byte do |each_char|
-        @partial_key[key_position(@count)] ||= []
-        @partial_key[key_position(@count)] = sub_key(each_char, @last_four[@count])
+        @partial_key[find_rotation(@last_four[@count])] ||= []
+        @partial_key[find_rotation(@last_four[@count])] = sub_key(each_char, @last_four[@count])
         @count += 1
       end
       @partial_key
@@ -43,13 +43,14 @@ module ENIGMATICKEYS
     def crack_test(plain_char, test_value)
     (@character_map.index(plain_char.chr) + (date_offset[key_position(@count)].to_i + test_value)) % @character_map.size
     end
-    
+
     def file_to_crack
       @file_crack ||= @read_write.read_file(@file_name).chomp
     end
 
     def find_rotation(encrypted_char)
-      ((@total_length - 3) + @last_four.index(encrypted_char)) % 4
+      # require "pry"; binding.pry
+      ((@total_length - 3) + @last_four.index(@last_four[@count])) % 4
     end
 
     def key_position(count)

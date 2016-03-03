@@ -1,10 +1,10 @@
 module Validations
-  def check_file_type(arguments)
-    arguments.each_with_index do |value, index|
-      return @messages.file_type_error unless value.include? ".txt"
-      break if index == 1
-    end
-  end
+  # def check_file_type(arguments)
+  #   arguments.each_with_index do |value, index|
+  #     return @messages.file_type_error unless value.include? ".txt"
+  #     break if index == 1
+  #   end
+  # end
 
   def check_file_exitence
     @messages.file_not_present
@@ -14,7 +14,6 @@ module Validations
     @messages.argument_error
   end
 
-  # TODO: Refactor this method to be less than six lines
   def error_message(error_class)
     case error_class
     when "TypeError" then check_argument

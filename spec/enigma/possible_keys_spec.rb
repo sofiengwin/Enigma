@@ -12,7 +12,7 @@ describe "#new" do
 
   describe "#file_to_crack" do
     it "can read a file" do
-      expect(@possible_keys.file_to_crack).to eql "hello world"
+      expect(@possible_keys.file_to_crack).to eql "hello worldnd.."
     end
   end
   describe "#date_offset" do
@@ -22,17 +22,17 @@ describe "#new" do
   end
   describe "#find_rotation" do
     it "can read a file" do
-      expect(@possible_keys.find_rotation("d")).to eql 2
+      expect(@possible_keys.find_rotation("d")).to eql 0
     end
   end
   describe "#key_position" do
     it "can read a file" do
-      expect(@possible_keys.key_position(3)).to eql 2
+      expect(@possible_keys.key_position(3)).to eql 1
     end
   end
   describe "#last_four_characters" do
     it "can read a file" do
-      expect(@possible_keys.last_four_characters).to eql "orld"
+      expect(@possible_keys.last_four_characters).to eql "nd.."
     end
   end
 

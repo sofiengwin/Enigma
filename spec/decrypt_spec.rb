@@ -16,13 +16,14 @@ describe EnigmaDecrypt do
 
   describe "#file_to_decript" do
     it "it return the file to be decrypted" do
-      expect(subject.file_to_decript).to eql "hello world"
+      expect(subject.file_to_decript).to eql ",4ycfz9fi,qe7xk"
     end
   end
 
-  describe "#file_to_decript" do
+  describe "#decript_wite" do
     it "it writes decrypted text to file" do
-      expect(subject.decrypt_write).to eql "hello world"
+      allow(STDIN).to receive(:gets).and_return('no')
+      expect(subject.decrypt_write).to eql nil
     end
   end
 
