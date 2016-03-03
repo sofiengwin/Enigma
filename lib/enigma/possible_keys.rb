@@ -4,7 +4,7 @@ require_relative "enigmahelpers"
 module ENIGMATICKEYS
   class PossibleKeys
     include EnigmaHelpers
-    def initialize(weakness, tday, file_name)
+    def initialize(weakness, file_name, tday)
       @weakness = weakness
       @tday = tday
       @file_name = file_name

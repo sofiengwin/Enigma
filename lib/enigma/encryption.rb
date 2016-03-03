@@ -32,7 +32,7 @@ class Encryption
 # New contents
 
   def test_write
-    @read_write.validate_encrypted_file(@encrypted_file, encrypt(file_to_encrypt), @plain_file)
+    @read_write.write_file(@encrypted_file, encrypt(file_to_encrypt))
   end
 
   def file_to_encrypt

@@ -39,7 +39,7 @@ describe "#new" do
   describe "#get_partial_key" do
     it "should return the correct multi dimensional array with correct rotation" do
       # allow(@possible_keys).to receive(:find_rotation) {2}
-      expect(@possible_keys.get_partial_key).to be_kind_of Array
+      expect(@possible_keys.get_partial_key).to eql ""
     end
   end
 end
