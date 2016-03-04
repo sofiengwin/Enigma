@@ -15,14 +15,14 @@ elsif ARGV.length == 3 && File.file?(ARGV[1])
   puts "The output file path file already exist. Do you want to overwrite it? yes/no"
   user_choice = STDIN.gets.chomp
   if user_choice == "yes"
-    puts ENIGMA::Crack.new(ARGV[0], ARGV[1], ARGV[2]).crack_write
+    ENIGMA::Crack.new(ARGV[0], ARGV[1], ARGV[2]).crack_write
     key = ENIGMA::Crack.new(ARGV[0], ARGV[1], ARGV[2]).clean_key
     puts ENIGMA::Messages.success_message(ARGV[1], key, ARGV[2])
   else
     puts "Cant continue with cracking"
   end
 else
-  p ENIGMA::Crack.new(ARGV[0], ARGV[1], ARGV[2]).crack_write
+  ENIGMA::Crack.new(ARGV[0], ARGV[1], ARGV[2]).crack_write
   key = ENIGMA::Crack.new(ARGV[0], ARGV[1], ARGV[2]).clean_key
   puts ENIGMA::Messages.success_message(ARGV[1], key, ARGV[2])
 end

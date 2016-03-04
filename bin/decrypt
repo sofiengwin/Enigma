@@ -11,14 +11,14 @@ elsif ARGV.length == 4 && File.file?(ARGV[1])
   puts "The output file path file already exist. Do you want to overwrite it? yes/no"
   user_choice = STDIN.gets.chomp
   if user_choice == "yes"
-    Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).file_to_decript
+    Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).decrypt_write
     puts ENIGMA::Messages.success_message(ARGV[1], ARGV[2], ARGV[3])
   else
     puts "Cant continue with decryption"
   end
 else
   if ARGV.length == 4
-    Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).file_to_decript
+    Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).decrypt_write
     puts ENIGMA::Messages.success_message(ARGV[1], ARGV[2], ARGV[3])
   end
 end
