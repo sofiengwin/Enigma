@@ -1,10 +1,26 @@
 require "spec_helper"
 
 describe Decryption do
-  let(:decrypt) { Decryption.new("51569", "280216") }
+  subject { Decryption.new("test_decrypt.txt", "test_decrypt_1.txt", "68214", "040316") }
   describe "#decrypt" do
     it "can decrypt any string" do
-      expect(decrypt.decrypt("test")).to eql ",u9w"
+      expect(subject.decrypt("test")).to eql "u55 "
+    end
+  end
+
+  describe "#decrypt_write" do
+    it "should write decrypted text to file" do
+      allow(subject).to receive(:decrypt_write) { "success" }
+      expect(subject.decrypt_write).to eql "success"
+    end
+  end
+
+
+
+
+  describe "#file_to_decript" do
+    it "should return string to decrypt" do
+      expect(subject.file_to_decript).to eql "mzuid)qyoah%3771681361+)tsx,)"
     end
   end
 end

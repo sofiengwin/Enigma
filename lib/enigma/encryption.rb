@@ -35,10 +35,4 @@ class Encryption
   def file_to_encrypt
     @read_write.read_file(@plain_file).chomp
   end
-
-  # def encryption_success
-  #   "created #{ARGV[1]} with key #{@encrypt.key} and date #{@encrypt.date_of_encryption}"
-  # end
-
-  # end of class
 end

@@ -1,14 +1,11 @@
 require "spec_helper"
 describe ENIGMA::Cracker do
-  subject { ENIGMA::Cracker.new("nd..", "020316", "encrypted.txt") }
+  subject { ENIGMA::PossibleKeys.new("test_crack.txt", "020316") }
 
-  describe "#new" do
-    it { expect(subject).to be_an_instance_of ENIGMA::Cracker }
-  end
 
   describe "#find_key" do
     it "should a multi dimentionsional array containing the key" do
-      expect(subject.find_key(subject.get_partial)).to ""
+      expect(ENIGMA::Cracker.find_key(subject.get_partial_key("nd.."))).to eql [["68"], ["82"], ["21"], ["14"]]
     end
   end
 end

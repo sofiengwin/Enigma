@@ -1,7 +1,7 @@
 require_relative "files"
 require_relative "enigmahelpers"
 
-module ENIGMATICKEYS
+module ENIGMA
   class PossibleKeys
     include EnigmaHelpers
     def initialize(file_name, tday)
@@ -63,7 +63,5 @@ module ENIGMATICKEYS
       offset_key(@tday)
     end
 
-    # end of class
   end
-  # end of module
 end

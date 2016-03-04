@@ -29,8 +29,6 @@ class Decryption
     total_rotation(@count, @key, offset_key(date_of_encryption))
   end
 
-  # new contents
-
   def decrypt_write
     @read_write.write_file(@plain_file, decrypt(file_to_decript))
   end
@@ -38,10 +36,4 @@ class Decryption
   def file_to_decript
     @read_write.read_file(@encrypted_file).chomp
   end
-
-  def decryption_success
-    "created #{ARGV[1]} with key #{@key} and date #{@date}"
-  end
-
-  # End of class
 end

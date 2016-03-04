@@ -1,3 +1,4 @@
+module ENIGMA
 class Messages
   def argument_error
     "Please enter the correct number of argument"
@@ -15,7 +16,8 @@ class Messages
     "The file exist would u like to over write it"
   end
 
-  def success_message(file_name, key, date)
+  def self.success_message(file_name, key, date)
     "created #{file_name} with key #{key} and date #{date}"
   end
+end
 end

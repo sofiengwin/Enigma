@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "enigma"
+# TODO: Add validation for incorrect key type or length
 
 if ARGV[0] && (ARGV[0] == "help" || ARGV[0] == "--help" || ARGV[0] == "-h")
   Enygma::Help.decrypt
@@ -12,12 +13,14 @@ elsif ARGV.length == 4 && File.file?(ARGV[1])
   puts "The output file path cannot be created, or file already exist. Run with --help for explanation"
   user_choice = STDIN.gets.chomp
   if user_choice == "yes"
-    puts Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).file_to_decript
+    Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).file_to_decript
+    puts ENIGMA::Messages.success_message(ARGV[1], ARGV[2], ARGV[3])
   else
     puts "Cant continue with decryption"
   end
 else
   if ARGV.length == 4
-    puts Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).file_to_decript
+    Decryption.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3]).file_to_decript
+    puts ENIGMA::Messages.success_message(ARGV[1], ARGV[2], ARGV[3])
   end
 end
