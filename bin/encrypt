@@ -2,14 +2,12 @@
 
 require "enigma"
 
-if ARGV[0] && (ARGV[0] == "help" || ARGV[0] == "--help" || ARGV[0] == "-h")
-  Enygma::Help.encrypt
-elsif ARGV.length < 1 || ARGV.length > 2
-  puts "Incorrect number of argument. Run with --help for explanation"
+if ARGV.length < 1 || ARGV.length > 2
+  puts "Incorrect number of argument."
 elsif !File.file?(ARGV[0])
-  puts "The input file path does not exist. Run with --help for explanation"
+  puts "The input file path does not exist."
 elsif ARGV[1] && File.file?(ARGV[1])
-  puts "The output file path cannot be created, or file already exist. Run with --help for explanation"
+  puts "The output file path file already exist. Do you want to overwrite it? yes/no"
   user_choice = STDIN.gets.chomp
   if user_choice == "yes"
     new_encryption = Encryption.new(ARGV[0], ARGV[1])
