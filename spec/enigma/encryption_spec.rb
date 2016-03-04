@@ -1,8 +1,9 @@
 require "spec_helper"
 
 describe Encryption do
+  subject { Encryption.new("test_encrypt.txt", "test_encrypt_1.txt")}
   before :each do
-    @encrypt = Encryption.new
+    @encrypt = Encryption.new("test_encrypt.txt", "test_encrypt.txt")
     allow(@encrypt).to receive(:generate_key) { "51569" }
   end
 
@@ -24,7 +25,7 @@ describe Encryption do
     end
 
     it "generate a new key on each instance" do
-      key_test = Encryption.new
+      key_test = Encryption.new("test_encrypt.txt", "test_encrypt.txt")
       expect(@encrypt.key).not_to eql key_test.key
     end
   end
@@ -97,6 +98,16 @@ describe Encryption do
       expect(@encrypt.format_month(9)).to eql "09"
       expect(@encrypt.format_month(10)).to eql 10
       expect(@encrypt.format_month(12)).to eql 12
+    end
+  end
+
+  describe "#file_to_encrypt" do
+    it { expect(@encrypt.file_to_encrypt).to be_a String }
+  end
+
+  describe "#encrypt_write" do
+    it "it should confirm that a text was written to file" do
+      expect(@encrypt.encrypt_write).to eql 20
     end
   end
 end

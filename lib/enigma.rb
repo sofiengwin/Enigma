@@ -1,5 +1,5 @@
 require "enigma/files"
-require "enigma/clean_key"
+require "enigma/crack"
 require "enigma/crack_key"
 require "enigma/enigmahelpers"
 require "enigma/decryption"

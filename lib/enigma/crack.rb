@@ -6,7 +6,7 @@ module ENIGMA
       @plain_file = plain_file
       @date = date
       @read_write = Files.new
-      @possible_keys = ENIGMATICKEYS::PossibleKeys.new(@encrypted_file, @date)
+      @possible_keys = ENIGMA::PossibleKeys.new(@encrypted_file, @date)
     end
 
     def cracked_key
@@ -38,12 +38,6 @@ module ENIGMA
     def file_to_crack
       @read_write.read_file(@encrypted_file)
     end
-    #
-    #     def crack_success
-    #       "created #{ARGV[1]} with key #{@key} and date #{@date}"
-    #     end
 
-    # end of class
   end
-  # end of module
 end

@@ -51,7 +51,6 @@ module ENIGMA
       end
       @new_array
     end
-    # end of class
+
   end
-  # end of module
 end
