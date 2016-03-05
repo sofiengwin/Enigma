@@ -8,7 +8,7 @@ class Encryption
     @count = 0
     @key = generate_key
     @character_map = character_map
-    @read_write = Files.new
+    @file = Files.new
   end
 
   def encrypt(plain_text)
@@ -29,10 +29,10 @@ class Encryption
   end
 
   def encrypt_write
-    @read_write.write_file(@encrypted_file, encrypt(file_to_encrypt))
+    @file.write(@encrypted_file, encrypt(file_to_encrypt))
   end
 
   def file_to_encrypt
-    @read_write.read_file(@plain_file).chomp
+    @file.read(@plain_file).chomp
   end
 end

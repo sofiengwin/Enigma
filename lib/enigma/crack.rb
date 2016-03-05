@@ -5,7 +5,7 @@ module ENIGMA
       @encrypted_file = encrypted_file
       @plain_file = plain_file
       @date = date
-      @read_write = Files.new
+      @file = Files.new
       @possible_keys = ENIGMA::PossibleKeys.new(@encrypted_file, @date)
     end
 
@@ -30,14 +30,13 @@ module ENIGMA
     #
     #
     def crack_write
-      @read_write.write_file(@plain_file, decrypted_text)
+      @file.write(@plain_file, decrypted_text)
       # crack_success
     end
 
     #
     def file_to_crack
-      @read_write.read_file(@encrypted_file)
+      @file.read(@encrypted_file)
     end
-
   end
 end
