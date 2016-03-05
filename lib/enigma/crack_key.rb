@@ -19,7 +19,7 @@ module ENIGMA
       @new_partial
       end
 
-    def self.forward_check_helper(partial_key, count)
+    def self.forward_helper(partial_key, count)
       @new_partial[count] ||= []
       partial_key[count].each_with_index do |item, _index|
         next if partial_key[count + 1].nil?
