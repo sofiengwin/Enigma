@@ -8,7 +8,7 @@ describe ENIGMA::Crack do
 
   describe "#clean_key" do
     it "it should return the correct key as a string" do
-      expect( ENIGMA::Crack.new("test_crack.txt", "test_crack", "020316").clean_key).to eql "68214"
+      expect(ENIGMA::Crack.new("test_crack.txt", "test_crack", "020316").clean_key).to eql "68214"
     end
   end
 

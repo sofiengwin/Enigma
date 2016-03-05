@@ -12,12 +12,12 @@ elsif ARGV[1] && File.file?(ARGV[1])
   if user_choice == "yes"
     new_encryption = Encryption.new(ARGV[0], ARGV[1])
     new_encryption.encrypt_write
-    puts ENIGMA::Messages.success_message(ARGV[1], new_encryption.key, new_encryption.date_of_encryption )
+    puts ENIGMA::Messages.success_message(ARGV[1], new_encryption.key, new_encryption.date_of_encryption)
   else
     puts "Cant continue with encryption"
   end
 else
   new_encryption = Encryption.new(ARGV[0], ARGV[1])
   new_encryption.encrypt_write
-  puts ENIGMA::Messages.success_message(ARGV[1], new_encryption.key, new_encryption.date_of_encryption )
+  puts ENIGMA::Messages.success_message(ARGV[1], new_encryption.key, new_encryption.date_of_encryption)
 end

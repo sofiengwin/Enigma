@@ -6,7 +6,7 @@ class Decryption
     @encrypted_file = encrypted_file
     @plain_file = plain_file
     @key = key
-    @read_write = Files.new
+    @file = Files.new
     @offset_key = offset_key
     @count = 0
     @text = ""
@@ -30,10 +30,10 @@ class Decryption
   end
 
   def decrypt_write
-    @read_write.write_file(@plain_file, decrypt(file_to_decript))
+    @file.write(@plain_file, decrypt(file_to_decript))
   end
 
   def file_to_decript
-    @read_write.read_file(@encrypted_file).chomp
+    @file.read(@encrypted_file).chomp
   end
 end

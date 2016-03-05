@@ -7,7 +7,7 @@ module ENIGMA
     def initialize(file_name, tday)
       @tday = tday
       @file_name = file_name
-      @read_write = Files.new
+      @file = Files.new
       @count = 0
       @file_crack = file_to_crack
       @last_four = last_four_characters
@@ -43,7 +43,7 @@ module ENIGMA
     end
 
     def file_to_crack
-      @file_crack ||= @read_write.read_file(@file_name).chomp
+      @file_crack ||= @file.read(@file_name).chomp
     end
 
     def find_rotation(_encrypted_char)
@@ -62,6 +62,5 @@ module ENIGMA
     def date_offset
       offset_key(@tday)
     end
-
   end
 end

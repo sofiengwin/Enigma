@@ -6,7 +6,6 @@ require "enigma"
 #
 # p ENIGMA::Crack.new(ARGV[0], ARGV[1], ARGV[2]).crack_write
 
-
 if ARGV.length < 2 || ARGV.length > 3
   puts "Incorrect number of argument."
 elsif !File.file?(ARGV[0])

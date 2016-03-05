@@ -10,13 +10,10 @@ describe Decryption do
 
   describe "#decrypt_write" do
     it "should write decrypted text to file" do
-      allow(subject).to receive(:decrypt_write) { "success" }
-      expect(subject.decrypt_write).to eql "success"
+      allow(subject).to receive(:decrypt) { "success" }
+      expect(subject.decrypt_write).to eql 7
     end
   end
-
-
-
 
   describe "#file_to_decript" do
     it "should return string to decrypt" do
