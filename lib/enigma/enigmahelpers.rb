@@ -27,7 +27,7 @@ module EnigmaHelpers
 
   def date_of_encryption
     dd = Time.now
-    "#{format_month(dd.day)}#{format_month(dd.month)}#{dd.year.to_s[-2..-1]}".to_i
+    "#{format_month(dd.day)}#{format_month(dd.month)}#{dd.year.to_s[-2..-1]}"
   end
 
   def offset_key(date_of_encryption)

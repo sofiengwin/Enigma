@@ -13,6 +13,7 @@ module ENIGMA
       ENIGMA::Cracker.find_key(@possible_keys.get_partial_key("nd.."))
     end
 
+
     def clean_key
       key = ""
       cracked_key.each_with_index do |item, index|
