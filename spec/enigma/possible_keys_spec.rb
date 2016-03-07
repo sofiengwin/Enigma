@@ -35,7 +35,8 @@ describe ENIGMA::PossibleKeys do
 
   describe "#get_partial_key" do
     it "should return the correct multi dimensional array with correct rotation" do
-      expect(subject.get_partial_key("nd..")).to eql [%w(29 68), %w(04 43 82), %w(21 60 99), %w(14 53 92)]
+      partial_key = [%w(29 68), %w(04 43 82), %w(21 60 99), %w(14 53 92)]
+      expect(subject.get_partial_key("nd..")).to eql partial_key
     end
   end
 end

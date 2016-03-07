@@ -53,16 +53,16 @@ module ENIGMA
       @new_partial
     end
     # TODO: Add a block that does matching base on strategy
-      # def self.find_key_helper(partial_key, count, strategy)
-      #   binding.pry
-      #   @new_partial[count] ||= []
-      #   partial_key[count].each_with_index do |item, index|
-      #     next if partial_key[count.send(strategy, 1)].nil?
-      #     partial_key[count.send(strategy, 1)].each_with_index do |next_item, index2|
-      #       @new_partial[count] << item if item[-1] == next_item[0]
-      #     end
-      #   end
-      #   @new_partial
-      # end
+    # def self.find_key_helper(partial_key, count, strategy)
+    #   binding.pry
+    #   @new_partial[count] ||= []
+    #   partial_key[count].each_with_index do |item, index|
+    #     next if partial_key[count.send(strategy, 1)].nil?
+    #     partial_key[count.send(strategy, 1)].each_with_index do |next_item, index2|
+    #       @new_partial[count] << item if item[-1] == next_item[0]
+    #     end
+    #   end
+    #   @new_partial
+    # end
   end
 end
