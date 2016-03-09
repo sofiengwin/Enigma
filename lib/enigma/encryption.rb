@@ -21,7 +21,8 @@ class Encryption
   end
 
   def encrypt_helper(each_char, _count)
-    (@character_map.index(each_char.chr) + get_total_rotation) % @character_map.size
+    (@character_map.index(each_char.chr) +
+    get_total_rotation) % @character_map.size
   end
 
   def get_total_rotation
