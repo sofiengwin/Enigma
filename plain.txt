@@ -1,1 +1,0 @@
-hello world ..end. im trying to make a version of conways game of life using ruby. ive created a grid class with playar as an instance variable. however, when i run my code..end..
