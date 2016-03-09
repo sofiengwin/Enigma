@@ -3,7 +3,7 @@ describe ENIGMA::Crack do
   subject { ENIGMA::Crack.new("test_crack.txt", "test_crack_1.txt", "040316") }
 
   describe "#new" do
-    it { expect(subject).to be_an_instance_of ENIGMA::Crack }
+    it { is_expected.to be_an_instance_of ENIGMA::Crack }
   end
 
   describe "#clean_key" do
