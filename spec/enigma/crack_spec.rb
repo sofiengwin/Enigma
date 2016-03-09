@@ -1,6 +1,7 @@
 require "spec_helper"
 describe ENIGMA::Crack do
-  subject { ENIGMA::Crack.new("test_crack.txt", "test_crack_1.txt", "040316") }
+  subject { ENIGMA::Crack.new("./spec/enigma/test_files/test_file.txt",
+    "./spec/enigma/test_files/test.txt", "040316") }
 
   describe "#new" do
     it { is_expected.to be_an_instance_of ENIGMA::Crack }
@@ -8,7 +9,8 @@ describe ENIGMA::Crack do
 
   describe "#clean_key" do
     it "it should return the correct key as a string" do
-      expect(ENIGMA::Crack.new("test_crack.txt", "test_crack", "020316").clean_key).to eql "68214"
+      expect(ENIGMA::Crack.new("./spec/enigma/test_files/test_file.txt",
+      "test_crack", "020316").clean_key).to eql "68214"
     end
   end
 

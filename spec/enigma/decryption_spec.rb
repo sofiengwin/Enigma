@@ -1,7 +1,8 @@
 require "spec_helper"
 
 describe Decryption do
-  subject { Decryption.new("test_decrypt.txt", "test_decrypt_1.txt", "68214", "040316") }
+  subject { Decryption.new("./spec/enigma/test_files/test_decrypt.txt",
+    "./spec/enigma/test_files/test.txt", "68214", "040316") }
   describe "#decrypt" do
     it "can decrypt any string" do
       expect(subject.decrypt("test")).to eql "u55 "

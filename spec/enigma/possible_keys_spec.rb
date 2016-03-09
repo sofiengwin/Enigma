@@ -1,6 +1,7 @@
 require "spec_helper"
 describe ENIGMA::PossibleKeys do
-  subject { ENIGMA::PossibleKeys.new("test_crack.txt", "10316") }
+  subject { ENIGMA::PossibleKeys.new("./spec/enigma/test_files/test_file.txt",
+    "10316") }
   describe "#new" do
     it "creates a new instance" do
       expect(subject).to be_an_instance_of ENIGMA::PossibleKeys
@@ -13,7 +14,7 @@ describe ENIGMA::PossibleKeys do
     end
   end
   describe "#date_offset" do
-    it "an return correct date ofset" do
+    it "can return correct date ofset" do
       expect(subject.date_offset).to eql "9856"
     end
   end

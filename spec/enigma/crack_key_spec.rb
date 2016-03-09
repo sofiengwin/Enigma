@@ -1,6 +1,6 @@
 require "spec_helper"
 describe ENIGMA::Cracker do
-  subject { ENIGMA::PossibleKeys.new("test_crack.txt", "020316") }
+  subject { ENIGMA::PossibleKeys.new("./spec/enigma/test_files/test_file.txt", "020316") }
 
   describe "#find_key" do
     it "should a multi dimentionsional array containing the key" do
