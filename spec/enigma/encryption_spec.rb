@@ -1,7 +1,8 @@
 require "spec_helper"
 
 describe Encryption do
-  subject { Encryption.new("test_encrypt.txt", "test_encrypt_1.txt") }
+  subject { Encryption.new("./spec/enigma/test_files/test_encrypt.txt",
+    "./spec/enigma/test_files/test.txt") }
 
   before :each do
     allow(subject).to receive(:generate_key) { "51569" }
