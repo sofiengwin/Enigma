@@ -1,5 +1,6 @@
 <a href="https://codeclimate.com/github/andela-gogbara/Enigma"><img src="https://codeclimate.com/github/andela-gogbara/Enigma/badges/gpa.svg" /></a>
 <a href="https://codeclimate.com/github/andela-gogbara/Enigma/coverage"><img src="https://codeclimate.com/github/andela-gogbara/Enigma/badges/coverage.svg" /></a>
+[![Build Status](https://travis-ci.org/andela-gogbara/Enigma.svg?branch=master)](https://travis-ci.org/andela-gogbara/Enigma)
 # Sofien-Enigma
 
 Sofien-Enigma is an encryption engine built (as a gem) with ruby programming language. It follows the principles of Enigma Encryption Machine to encrypt and decrypt files. The gem also offers the feature of cracking a file.
