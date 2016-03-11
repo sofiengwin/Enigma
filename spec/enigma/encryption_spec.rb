@@ -84,7 +84,6 @@ describe Encryption do
     end
   end
 
-  # TODO: Passing a particular date rather than accessing time.now
   describe "#date_of_encryption" do
     today = Time.now
     it "should return the current date in the correct format" do

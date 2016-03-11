@@ -27,14 +27,10 @@ module ENIGMA
       @decrypt.decrypt(file_to_crack)
     end
 
-    #
-    #
     def crack_write
       @file.write(@plain_file, decrypted_text)
-      # crack_success
     end
 
-    #
     def file_to_crack
       @file.read(@encrypted_file)
     end
