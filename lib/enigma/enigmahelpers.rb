@@ -35,5 +35,4 @@ module EnigmaHelpers
     date_key **= 2
     date_key.to_s[-4..-1]
   end
-  # End of module
 end
