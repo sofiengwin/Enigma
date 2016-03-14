@@ -18,20 +18,22 @@ module ENIGMA
       @partial_key = []
       weakness.each_byte do |each_char|
         @partial_key[key_position(@count)] ||= []
-        @partial_key[key_position(@count)] = sub_key(each_char, @last_four[@count])
+        @partial_key[key_position(@count)] = sub_key(each_char,
+         @last_four[@count])
         @count += 1
       end
       @partial_key
     end
 
     def sub_key(plain_char, encrypted_char)
-      sub_array = []
+      sub_partial_key = []
       10.times do |i|
         10.times do |j|
-          sub_array << "#{i}#{j}" if crack_helper?(plain_char, encrypted_char, "#{i}#{j}".to_i)
+          sub_partial_key << "#{i}#{j}" if
+          crack_helper?(plain_char, encrypted_char, "#{i}#{j}".to_i)
         end
       end
-      sub_array
+      sub_partial_key
     end
 
     def crack_helper?(plain_char, encrypted_char, test_value)
@@ -39,7 +41,9 @@ module ENIGMA
     end
 
     def crack_test(plain_char, test_value)
-      (@character_map.index(plain_char.chr) + (date_offset[key_position(@count)].to_i + test_value)) % @character_map.size
+      (@character_map.index(plain_char.chr) +
+      (date_offset[key_position(@count)].to_i + test_value)) %
+      @character_map.size
     end
 
     def file_to_crack
